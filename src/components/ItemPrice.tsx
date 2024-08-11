@@ -4,10 +4,10 @@ interface Props{
     Price: number;
 }
 
-const ItemPrice = ({ score }: Props) => {
-    let color = score > 75 ? 'green' : score >  60 ? 'yellow': 'red';
+const ItemPrice = ({ Price }: Props) => {
+    let color = Price > 75 ? 'green' : Price >  60 ? 'yellow': 'red';
   return (
-    <Badge colorScheme={color} fontSize='14px' paddingX={2} borderRadius={5}>{score}$</Badge>
+    <Badge colorScheme={color} fontSize='14px' paddingX={2} borderRadius={5}>{Price}$</Badge>
     
   )
 }
