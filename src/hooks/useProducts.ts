@@ -2,19 +2,20 @@ import { useEffect, useState } from "react";
 import apiClient from "../services/api-client";
 import { CanceledError } from "axios";
 
-interface product{
+export interface Product{
     id: number,
     title: string,
+    image: string,
 }
 
 const useProducts = () => {
-    const [products, setProducts] = useState<product[]>([]);
+    const [products, setProducts] = useState<Product[]>([]);
     const [error, setError] = useState('');
 
     useEffect(() => {
         const controller = new AbortController();
 
-        apiClient.get<product[]>('/products')
+        apiClient.get<Product[]>('/products')
         .then(res => setProducts(res.data))
         .catch(err => { 
             if(err instanceof CanceledError ) return;
